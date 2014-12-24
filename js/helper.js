@@ -7,6 +7,18 @@ Don't worry, you'll learn what's going on in this file throughout the course. Yo
 Cameron Pittman
 */
 
+// detect browser/user language
+var userLang = navigator.language || navigator.userLanguage;
+
+// change language file depending on detected language
+if (userLang === "fr")
+{
+    $("<script src='js/fr.js'></script>").insertAfter("#helper");
+}
+else
+{
+    $("<script src='js/en.js'></script>").insertAfter("#helper");
+}
 
 /*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
@@ -14,6 +26,7 @@ replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderBtn = '<a><img src="images/%data%.png" alt=""></a>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -168,10 +181,12 @@ function initializeMap() {
     var infoWindow = new google.maps.InfoWindow({
       content: name
     });
-
+    
+    
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      infoWindow.open(map,marker);
     });
 
     // this is where the pin actually gets added to the map.
