@@ -7,17 +7,32 @@ Don't worry, you'll learn what's going on in this file throughout the course. Yo
 Cameron Pittman
 */
 
-// detect browser/user language
-var userLang = navigator.language || navigator.userLanguage;
+if (!localStorage.getItem("lang"))
+{
+    // detect browser/user language
+    var userLang = navigator.language || navigator.userLanguage;
+    console.log(userLang);
+}
+else
+{
+    var userLang = localStorage.getItem("lang");
+}
 
 // change language file depending on detected language
 if (userLang === "fr")
 {
     $("<script src='js/fr.js'></script>").insertAfter("#helper");
+
+    // load english button onclick function
+    loadLang();
+    
 }
 else
 {
     $("<script src='js/en.js'></script>").insertAfter("#helper");
+
+    // load french button onclick function
+    loadLang();
 }
 
 /*
@@ -26,7 +41,7 @@ replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
-var HTMLheaderBtn = '<a><img src="images/%data%.png" alt=""></a>';
+var HTMLheaderBtn = '<a id="lang"><img src="images/%data%.png" alt=""></a>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -39,7 +54,7 @@ var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</sp
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
+var HTMLskillsStart = '<h3 id="skillsH3">Skill at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
@@ -75,12 +90,27 @@ var googleMap = '<div id="map"></div>';
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
-$(document).ready(function() {
-  $('button').click(function() {
-    var iName = inName(name) || function(){};
-    $('#name').html(iName);  
-  });
-});
+// 
+function loadLang() {
+    $(document).ready(function() {
+    $('#lang').click(function() {
+        if (userLang === "fr")
+        {
+            userLang = "en";
+        }
+        else
+        {
+            userLang = "fr";
+        }
+        
+        // store userLang
+        localStorage.setItem("lang", userLang);
+
+        // reload page
+        document.location.reload();
+    });
+    });
+}
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
