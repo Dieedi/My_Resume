@@ -2,6 +2,20 @@
   padding:0;
   margin:0;
   font-family: 'Roboto', sans-serif;
+  max-width: 97%;
+  max-width: 960px;
+  margin: 0 auto 0 auto;
+  background-color: #D4D6DA;
+}
+
+hr {
+  margin: 4px 0 4px 0;
+  height: 3px;
+  border: none;
+}
+
+.header {
+  background-color: #324976;
 }
 
 .clearfix {
@@ -15,7 +29,7 @@
 
 h1 {
   font-size: 40px;
-  color: #F5A623;
+  color: #B16540;
   line-height: 48px;
   display: inline;
 }
@@ -23,7 +37,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999999;
+  color: #7181A0;
   line-height: 29px;
   padding: 10px;
 }
@@ -52,7 +66,7 @@ h2, h3, h4, h5 {
 .date-text {
   font-style: italic;
   font-size: 14px;
-  color: #999999;
+  color: #7181A0;
   line-height: 16px;
   float: left;
 }
@@ -75,8 +89,12 @@ p {
 a {
   color: #1199C3;
   text-decoration: none;
-  margin-top: 10px;
-  display: block;
+  margin: 10px 0 0 10px;
+}
+
+a.header {
+  float: right;
+  margin-top: 0;
 }
 
 .welcome-message {
@@ -87,16 +105,20 @@ a {
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #B16540;
   display: none;
 }
 
+#skills {
+  flex-flow: column wrap;
+  height: 5em;
+}
 .orange {
   background-color: #F5AE23;
 }
 
 .orange-text {
-  color: #F5AE23;
+  color: #F0BBA1;
 }
 
 .white-text {
@@ -116,7 +138,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #324976;
 }
 
 .flex-box {
@@ -150,6 +172,11 @@ img {
   padding: 10px;
 }
 
+img.header {
+  padding: 0 15px 0 0;
+  margin: 10px;
+}
+
 /* Bar chart stuff */
 .chart div {
   font: 10px sans-serif;
@@ -163,7 +190,8 @@ img {
 }
 
 span {
-  padding: 5px;
+  padding: 4px;
+  color: #010B20;
 }
 
 #letsConnect {
@@ -176,7 +204,7 @@ span {
   }
 }
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width: 900px) {
   .biopic {
     width: 175px;
   }
@@ -213,3 +241,8 @@ span {
     display: block;
   }
 }
+/*
+    google map opacity !
+    filter: alpha(opacity=100);
+    opacity: 1;
+*/

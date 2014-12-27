@@ -27,28 +27,28 @@ var work = {
         "title": "IT Support",
         "location": "Istres, France",
         "dates": "2014/2015",
-        "description": "<ul><li>Technical support on Windows computers</li><li>Parc Management</li><li>VoIP CISCO</li></ul>"
+        "description": "<ul><li>Technical support on Windows computers</li><li>Parc Management</li><li>VoIP CISCO</li></ul><br>"
     },
     {
         "employer": "Self Entreprise",
         "title": "Consumer IT support",
         "location": "Miramas, France",
         "dates": "2011/2013",
-        "description": "<ul><li>IT support on Windows XP/7/8</li><li>Printers support</li><li>Mobility Support</li></ul>"
+        "description": "<ul><li>IT support on Windows XP/7/8</li><li>Printers support</li><li>Mobility Support</li></ul><br>"
     },
     {
         "employer": "Autoroutes du Sud de la France",
         "title": "IT Support",
         "location": "Avignon, France",
         "dates": "2006/2011",
-        "description": "<ul><li>Deployment/migration Windows 7</li><li>IT support on Windows XP/7</li><li>Parc Management</li><li>VoIP CISCO</li><li>BlackBerry mobiles and servers management</li><li>Network and security</li></ul>"
+        "description": "<ul><li>Deployment/migration Windows 7</li><li>IT support on Windows XP/7</li><li>Parc Management</li><li>VoIP CISCO</li><li>BlackBerry mobiles and servers management</li><li>Network and security</li></ul><br>"
     },
     {
         "employer": "Autoroutes du Sud de la France",
         "title": "IT Support",
         "location": "Paris, France",
         "dates": "2002/2006",
-        "description": "<ul><li>IT support on Windows XP</li><li>Parc Management</li><li>Print and files servers management</li><li>Backup management</li></ul>"
+        "description": "<ul><li>IT support on Windows XP</li><li>Parc Management</li><li>Print and files servers management</li><li>Backup management</li></ul><br>"
     }
     ]
 };

@@ -2,9 +2,9 @@
 
 // display main header
 $("#header").prepend(HTMLbioPic.replace("%data%", bio.bioPic));
-// $("#header").prepend(HTMLmobile.replace("%data%", bio.contacts.mobile));
-$("#header").prepend(HTMLemail.replace("%data%", bio.contacts.email));
-$("#header").prepend(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#header #topContacts").prepend(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#header #topContacts").prepend(HTMLmobile.replace("%data%", bio.contacts.mobile));
+$("#header #topContacts").prepend(HTMLemail.replace("%data%", bio.contacts.email));
 
 // change button for language switch
 if (userLang === "fr")
