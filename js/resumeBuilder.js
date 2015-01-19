@@ -130,7 +130,6 @@ function displaySkills() {
             $("#skillsH3").text("Skill at a Glance:");
         }
 
-
         for (webSkill in skills.webSkills)
         {
             var formattedSkills = HTMLskillsHtml.replace("%data%", skills.webSkills[webSkill]);
