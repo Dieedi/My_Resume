@@ -1,0 +1,6 @@
+
+#15171A dark -> background
+#A7A086 greyn -> text
+#FF9900 orange -> titles
+#CEE2FF whitue -> sub
+#1A1A1A other dark -> other background
