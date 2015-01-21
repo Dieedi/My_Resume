@@ -209,6 +209,7 @@ nav #lang {
     padding: 0;
     right: 15%;
     white-space: nowrap;
+    transition: right 2s;
 }
 
 /* preparing transition for list elements*/
@@ -271,6 +272,11 @@ nav #lang {
     transition: font-size 2s;
 }
 
+.menuBtn.open > ul {
+	right: -130%;
+	transition: right 2s;
+}
+
 @media(max-width: 380px) {
     .menu-bar {
         right: 7%;
@@ -283,32 +289,32 @@ nav #lang {
     }
 
     .menuBtn.open > ul > .skills {
-        -webkit-transform: translate(-30px, 0px);
-        transform: translate(-30px, 0px);
-        transition: transform 2s, font-size 2s, background-color 2s;
-    }
-
-    .menuBtn.open > ul > .exp {
-        -webkit-transform: translate(-20px, 0px);
-        transform: translate(-20px, 0px);
-        transition: transform 2s, font-size 2s, background-color 2s;
-    }
-
-    .menuBtn.open > ul > .projects {
-        -webkit-transform: translate(-10px, 0px);
-        transform: translate(-10px, 0px);
-        transition: transform 2s, font-size 2s, background-color 2s;
-    }
-
-    .menuBtn.open > ul > .education {
         -webkit-transform: translate(0px, 0px);
         transform: translate(0px, 0px);
         transition: transform 2s, font-size 2s, background-color 2s;
     }
 
-    .menuBtn.open > ul > .mapSect {
+    .menuBtn.open > ul > .exp {
         -webkit-transform: translate(10px, 0px);
         transform: translate(10px, 0px);
+        transition: transform 2s, font-size 2s, background-color 2s;
+    }
+
+    .menuBtn.open > ul > .projects {
+        -webkit-transform: translate(20px, 0px);
+        transform: translate(20px, 0px);
+        transition: transform 2s, font-size 2s, background-color 2s;
+    }
+
+    .menuBtn.open > ul > .education {
+        -webkit-transform: translate(30px, 0px);
+        transform: translate(30px, 0px);
+        transition: transform 2s, font-size 2s, background-color 2s;
+    }
+
+    .menuBtn.open > ul > .mapSect {
+        -webkit-transform: translate(40px, 0px);
+        transform: translate(40px, 0px);
         transition: transform 2s, font-size 2s, background-color 2s;
     }
 
@@ -322,6 +328,25 @@ nav #lang {
         font-size: 0.8rem;
         transition: font-size 2s;
     }
+}
+
+@media(max-width: 680px) and (min-width: 380px) {
+	#topContacts {
+		left: 10%;
+	}
+}
+
+@media(max-width: 330px) {
+	#name {
+		margin-top: 10%;
+	}
+	#topContacts {
+		left: 10%;
+	}
+
+	.menu-bar {
+		display: none;
+	}
 }
 
 /* end of menu button */

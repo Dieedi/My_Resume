@@ -150,7 +150,8 @@ function displayWork() {
     for (job in work.jobs)
     {
         $("#work .content").append(HTMLworkentryStart);
-        var formattedJobs = HTMLworkEmployer.replace("%data%", work.jobs[job].employer) + HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedJobs = HTMLworkEmployer.replace("%data%", work.jobs[job].employer)
+            + HTMLworkTitle.replace("%data%", work.jobs[job].title);
         $(".work-entry:last").append(formattedJobs);
         $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
         $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
@@ -163,7 +164,8 @@ function displaySchools() {
     for (onlineCourse in education.onlineCourses)
     {
         $("#school .content").append(HTMLschoolentryStart);
-        var formattedSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title) + HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+        var formattedSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title)
+            + HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
         $(".education-entry:last").append(formattedSchool);
         $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates));
         $(".education-entry:last").append(HTMLonlineURL.replace(/(%data%)/gm, education.onlineCourses[onlineCourse].url));
