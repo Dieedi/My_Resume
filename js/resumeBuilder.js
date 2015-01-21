@@ -25,14 +25,11 @@ var userLang;
 
 /* check for language/load language files/listen for click on language button */
 function getLang() {
-    if (!localStorage.getItem("lang"))
-    {
+    if (!localStorage.getItem("lang")) {
         // detect browser/user language
         userLang = navigator.language || navigator.userLanguage;
         setLang();
-    }
-    else
-    {
+    } else {
         userLang = localStorage.getItem("lang");
         setLang();
     }
@@ -40,14 +37,11 @@ function getLang() {
 
 // change language file depending on detected language
 function setLang() {
-    if (userLang === "fr")
-    {
+    if (userLang === "fr") {
         $("<script src='js/fr.js'></script>").insertAfter("#helper");
         // load english button onclick function
         loadLang(userLang);
-    }
-    else
-    {
+    } else {
         $("<script src='js/en.js'></script>").insertAfter("#helper");
         // load french button onclick function
         loadLang(userLang);
@@ -57,12 +51,9 @@ function setLang() {
 function loadLang() {
     $(document).ready(function() {
     $('#lang').click(function() {
-        if (userLang === "fr")
-        {
+        if (userLang === "fr") {
             userLang = "en";
-        }
-        else
-        {
+        } else {
             userLang = "fr";
         }
         // store userLang
@@ -86,20 +77,16 @@ function displayNav() {
 
 // change button for language switch
 function displayBtn() {
-    if (userLang === "fr")
-    {
+    if (userLang === "fr") {
         $("#topButtons").prepend(HTMLheaderBtn.replace("%data%", "en"));
-    }
-    else
-    {
+    } else {
         $("#topButtons").prepend(HTMLheaderBtn.replace("%data%", "fr"));
     }
 }
 
 // change titles
 function changeTitle() {
-    if (userLang === "fr")
-    {
+    if (userLang === "fr") {
         // switching fr/en menu list
         $(".skills").html("<a href='#skillsSect'>Compétences</a>");
         $(".exp").html('<a href="#exp">Expérience pro</a>');
@@ -118,26 +105,20 @@ function changeTitle() {
 
 // display skills
 function displaySkills() {
-    if (bio.skills !== null)
-    {
+    if (bio.skills !== null) {
         $("#skills .content").append(HTMLskillsStart);
-        if (userLang === "fr")
-        {
+        if (userLang === "fr") {
             $("#skillsH3").text("Compétences:");
-        }
-        else
-        {
+        } else {
             $("#skillsH3").text("Skill at a Glance:");
         }
 
-        for (webSkill in skills.webSkills)
-        {
+        for (webSkill in skills.webSkills) {
             var formattedSkills = HTMLskillsHtml.replace("%data%", skills.webSkills[webSkill]);
             $("#skills .content").append(formattedSkills);
         }
 
-        for (otherSkill in skills.otherSkills)
-        {
+        for (otherSkill in skills.otherSkills) {
             var formattedSkills = HTMLskillsOther.replace("%data%", skills.otherSkills[otherSkill]);
             $("#skills .content").append(formattedSkills);
         }
@@ -147,8 +128,7 @@ function displaySkills() {
 // display work experience
 function displayWork() {
     $("#work").append(HTMLworkStart);
-    for (job in work.jobs)
-    {
+    for (job in work.jobs) {
         $("#work .content").append(HTMLworkentryStart);
         var formattedJobs = HTMLworkEmployer.replace("%data%", work.jobs[job].employer)
             + HTMLworkTitle.replace("%data%", work.jobs[job].title);
@@ -161,8 +141,7 @@ function displayWork() {
 //  display education
 function displaySchools() {
     $("#school").append(HTMLschoolStart);
-    for (onlineCourse in education.onlineCourses)
-    {
+    for (onlineCourse in education.onlineCourses) {
         $("#school .content").append(HTMLschoolentryStart);
         var formattedSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title)
             + HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
@@ -170,8 +149,7 @@ function displaySchools() {
         $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates));
         $(".education-entry:last").append(HTMLonlineURL.replace(/(%data%)/gm, education.onlineCourses[onlineCourse].url));
     }
-    for (school in education.schools)
-    {
+    for (school in education.schools) {
         $("#school .content").append(HTMLschoolentryStart);
         $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name));
         $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));
@@ -183,14 +161,13 @@ function displaySchools() {
 // projects display
 function displayProjects() {
     $("#projects").append(HTMLprojectStart);
-    for (project in projects.projects)
-    {
+    for (project in projects.projects) {
         $("#projects .content").append(HTMLprojectentryStart);
         $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[project].title));
         $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[project].dates));
         $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[project].description));
-        if (projects.projects[project].images.length > 0)
-        {
+
+        if (projects.projects[project].images.length > 0) {
             $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[project].images));
         };
     }
@@ -213,11 +190,9 @@ function menu() {
         });
 
         // check for class "open" after click on document
-        $(document).click(function (event){
-            if(!$(event.target).closest(".menuBtn").length)
-            {
-                if ($(".open").length)
-                {
+        $(document).click(function (event) {
+            if(!$(event.target).closest(".menuBtn").length) {
+                if ($(".open").length) {
                     $(".open").removeClass("open");
                 }
             }

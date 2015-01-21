@@ -15,8 +15,7 @@ var bio = {
     "skills" : skills,
     "welcomeMsg": "<h3>Hello,</h3><p>Aprés plus de 12 ans de support bureautique, J'ai choisi de suivre une nouvelle voie et de devenir <span class='underline'>Développeur Web Front-End</span>.<br>"
         + "Créer un Web <span class='underline'>Responsive</span> et des interfaces <span class='underline'>Simples</span> est devenu mon <span class='underline'>Nouvel Objectif</span>.</p>",
-    "contacts":
-    {
+    "contacts": {
         "mobile": "+33 6 27 74 12 74",
         "email": "pouillot.j@free.fr",
         "github": "Dieedi",
