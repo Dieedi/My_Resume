@@ -178,9 +178,10 @@ function addMap() {
     $("#mapDiv").append(googleMap);
 }
 
-// internationalize change with switch at start of file
-// $("#main").append(internationalizeButton);
-// replaced by switch language functions
+/*  internationalize change with switch at start of file
+*   $("#main").append(internationalizeButton);
+*   replaced by switch language functions
+*/
 
 // Expand menu list on click
 function menu() {
@@ -190,6 +191,9 @@ function menu() {
         });
 
         // check for class "open" after click on document
+        /*  from http://stackoverflow.com/questions/152975/how-to-detect-a-click-outside-an-element and other sources
+        *   over Internet, I've find a way to detect click outside of an element and so add/remove class to switch my menu button.
+        */
         $(document).click(function (event) {
             if(!$(event.target).closest(".menuBtn").length) {
                 if ($(".open").length) {
