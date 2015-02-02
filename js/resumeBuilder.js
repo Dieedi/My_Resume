@@ -7,16 +7,6 @@ displayBtn();
 
 changeTitle();
 
-displayNav();
-
-displaySkills();
-
-displayWork();
-
-displaySchools();
-
-displayProjects();
-
 addMap();
 
 displayClicks();
@@ -64,17 +54,6 @@ function loadLang() {
     });
 }
 
-// display main header (navbar content)
-function displayNav() {
-    $("#name").append(HTMLheaderName.replace("%data%", bio.fullname));
-    $("#name").append(HTMLheaderRole.replace("%data%", bio.role));
-    $("#welcome").append(HTMLWelcomeMsg.replace("%data%", bio.welcomeMsg));
-    // $("#header").prepend(HTMLbioPic.replace("%data%", bio.bioPic));
-    $("#topContacts").prepend(HTMLgithub.replace(/(%data%)/gm, bio.contacts.github));
-    $("#topContacts").prepend(HTMLmobile.replace(/(%data%)/gm, bio.contacts.mobile));
-    $("#topContacts").prepend(HTMLemail.replace(/(%data%)/gm, bio.contacts.email));
-}
-
 // change button for language switch
 function displayBtn() {
     if (userLang === "fr") {
@@ -100,76 +79,6 @@ function changeTitle() {
         $("#exp .secTitle").html("<h4>Expérience</h4>");
         $("#projectsSect .secTitle").html("<h4>Projets</h4>");
         $("#education .secTitle").html("<h4>Education</h4>");
-    }
-}
-
-// display skills
-function displaySkills() {
-    if (bio.skills !== null) {
-        $("#skills .content").append(HTMLskillsStart);
-        if (userLang === "fr") {
-            $("#skillsH3").text("Compétences:");
-        } else {
-            $("#skillsH3").text("Skill at a Glance:");
-        }
-
-        for (webSkill in skills.webSkills) {
-            var formattedSkills = HTMLskillsHtml.replace("%data%", skills.webSkills[webSkill]);
-            $("#skills .content").append(formattedSkills);
-        }
-
-        for (otherSkill in skills.otherSkills) {
-            var formattedSkills = HTMLskillsOther.replace("%data%", skills.otherSkills[otherSkill]);
-            $("#skills .content").append(formattedSkills);
-        }
-    }
-}
-
-// display work experience
-function displayWork() {
-    $("#work").append(HTMLworkStart);
-    for (job in work.jobs) {
-        $("#work .content").append(HTMLworkentryStart);
-        var formattedJobs = HTMLworkEmployer.replace("%data%", work.jobs[job].employer)
-            + HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        $(".work-entry:last").append(formattedJobs);
-        $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
-        $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
-    }
-}
-
-//  display education
-function displaySchools() {
-    $("#school").append(HTMLschoolStart);
-    for (onlineCourse in education.onlineCourses) {
-        $("#school .content").append(HTMLschoolentryStart);
-        var formattedSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title)
-            + HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
-        $(".education-entry:last").append(formattedSchool);
-        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates));
-        $(".education-entry:last").append(HTMLonlineURL.replace(/(%data%)/gm, education.onlineCourses[onlineCourse].url));
-    }
-    for (school in education.schools) {
-        $("#school .content").append(HTMLschoolentryStart);
-        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name));
-        $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));
-        $(".education-entry:last").append(HTMLschoolDegree.replace("%data%", education.schools[school].degree));
-        $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
-    }
-}
-
-// projects display
-function displayProjects() {
-    $("#projects").append(HTMLprojectStart);
-    for (project in projects.projects) {
-        $("#projects .content").append(HTMLprojectentryStart);
-        $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[project].title));
-        $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[project].dates));
-        $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[project].description));
-
-        if (projects.projects[project].images.length > 0) {
-            $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[project].images));
-        };
     }
 }
 
@@ -214,3 +123,94 @@ function displayClicks() {
         console.log(x,y);
     }
 }
+
+// display main header (navbar content)
+bio.displayNav = function() {
+    $("#name").append(HTMLheaderName.replace("%data%", bio.fullname));
+    $("#name").append(HTMLheaderRole.replace("%data%", bio.role));
+    $("#welcome").append(HTMLWelcomeMsg.replace("%data%", bio.welcomeMsg));
+    // $("#header").prepend(HTMLbioPic.replace("%data%", bio.bioPic));
+    $("#topContacts").prepend(HTMLgithub.replace(/(%data%)/gm, bio.contacts.github));
+    $("#topContacts").prepend(HTMLmobile.replace(/(%data%)/gm, bio.contacts.mobile));
+    $("#topContacts").prepend(HTMLemail.replace(/(%data%)/gm, bio.contacts.email));
+}
+
+bio.displayNav();
+
+// display skills
+bio.displaySkills = function() {
+    if (bio.skills !== null) {
+        $("#skills .content").append(HTMLskillsStart);
+        if (userLang === "fr") {
+            $("#skillsH3").text("Compétences:");
+        } else {
+            $("#skillsH3").text("Skill at a Glance:");
+        }
+
+        for (webSkill in skills.webSkills) {
+            var formattedSkills = HTMLskillsHtml.replace("%data%", bio.skills.webSkills[webSkill]);
+            $("#skills .content").append(formattedSkills);
+        }
+
+        for (otherSkill in skills.otherSkills) {
+            var formattedSkills = HTMLskillsOther.replace("%data%", bio.skills.otherSkills[otherSkill]);
+            $("#skills .content").append(formattedSkills);
+        }
+    }
+}
+
+bio.displaySkills();
+
+// display work experience
+work.displayWork = function() {
+    $("#work").append(HTMLworkStart);
+    for (job in work.jobs) {
+        $("#work .content").append(HTMLworkentryStart);
+        var formattedJobs = HTMLworkEmployer.replace("%data%", work.jobs[job].employer)
+            + HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        $(".work-entry:last").append(formattedJobs);
+        $(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
+        $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
+    }
+}
+
+work.displayWork();
+
+//  display education
+education.displaySchools = function() {
+    $("#school").append(HTMLschoolStart);
+    for (onlineCourse in education.onlineCourses) {
+        $("#school .content").append(HTMLschoolentryStart);
+        var formattedSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title)
+            + HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+        $(".education-entry:last").append(formattedSchool);
+        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates));
+        $(".education-entry:last").append(HTMLonlineURL.replace(/(%data%)/gm, education.onlineCourses[onlineCourse].url));
+    }
+    for (school in education.schools) {
+        $("#school .content").append(HTMLschoolentryStart);
+        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name));
+        $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));
+        $(".education-entry:last").append(HTMLschoolDegree.replace("%data%", education.schools[school].degree));
+        $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
+    }
+}
+
+education.displaySchools();
+
+// projects display
+projects.displayProjects = function() {
+    $("#projects").append(HTMLprojectStart);
+    for (project in projects.projects) {
+        $("#projects .content").append(HTMLprojectentryStart);
+        $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[project].title));
+        $(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[project].dates));
+        $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[project].description));
+
+        if (projects.projects[project].images.length > 0) {
+            $(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[project].images));
+        };
+    }
+}
+
+projects.displayProjects();
