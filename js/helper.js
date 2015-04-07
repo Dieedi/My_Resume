@@ -22,15 +22,15 @@ else
 if (userLang === "fr")
 {
     $("<script src='js/fr.js'></script>").insertAfter("#helper");
-
+    document.getElementsByTagName("html")[0].setAttribute("lang", "fr");
     // load english button onclick function
     loadLang();
-    
+
 }
 else
 {
     $("<script src='js/en.js'></script>").insertAfter("#helper");
-
+    document.getElementsByTagName("html")[0].setAttribute("lang", "en");
     // load french button onclick function
     loadLang();
 }
@@ -40,48 +40,52 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name" class="header">%data%</h1>';
-var HTMLheaderRole = '<span class="header">%data%</span>';
-var HTMLheaderBtn = '<a id="lang" class="header"><img class="header" src="images/%data%.png" alt=""></a><hr/>';
+var HTMLheaderRole = '<h4 class="header">%data%</h4><hr>';
+var HTMLheaderBtn = '<a id="lang" class="header"><img class="header" src="images/%data%.png" alt=""></a>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text header">%contact%</span><span class="white-text header">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text header">mobile :</span><span class="white-text header">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text header">email :</span><span class="white-text header">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text header">twitter :</span><span class="white-text header">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text header">github :</span><span class="white-text header">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text header">blog :</span><span class="white-text header">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text header">location :</span><span class="white-text header">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="white-text header">%contact%</span><span class="text header"> %data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="white-text header">mobile :</span><span class="text header"><a href="tel:%data%" class="header"> %data%</a></span></li>';
+var HTMLemail = '<li class="flex-item"><span class="white-text header">email :</span><span class="text header"><a href="mailto:%data%" class="header"> %data%</a></span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="white-text header">twitter :</span><span class="text header"> %data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="white-text header">github :</span><span class="text header"><a href="https://github.com/%data%" class="header" target="_blank"> %data%</a></span></li>';
+var HTMLblog = '<li class="flex-item"><span class="white-text header">blog :</span><span class="text header"> %data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="white-text header">location :</span><span class="text header"> %data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic header">';
 var HTMLWelcomeMsg = '<span class="welcome-message header">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skillsH3" class="header">Skill at a Glance:</h3><ul id="skills" class="flex-box header"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text header">%data%</span></li>';
+var HTMLskillsStart = '<h3 id="skillsH3" class="header">Skill at a Glance:</h3><ul id="skills" class="list-unstyled header"></ul>';
+var HTMLskills = '<li class="flex-item"><span class="text header">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkEmployer = '<h5>%data%';
+var HTMLworkTitle = ' - %data%</h5>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
+var HTMLworkDescription = '<p>%data%</p>';
+var HTMLworkImg = '<img src="%data%" class="logo">'
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<h5>%data%</h5></div><br clear="all">';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectDescription = '<p>%data%</p>';
+var HTMLprojectImage = '<div class="project-title"><img src="%data%" class="logo">';
+var HTMLprojectUrl = '<a href="%data%" target="_blank">%data%</a>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolName = '<h5>%data%';
+var HTMLschoolDegree = '%data%</h5>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<em>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineTitle = '<h5>%data%';
+var HTMLonlineSchool = ' - %data%</h5><br clear="all">';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="%data%">%data%</a>';
+var HTMLonlineURL = '<a href="%data%" target="_blank">%data%</a>';
+var HTMLonlineImage = '<img src="%data%" class="logo">';
+var HTMLonlineDescription = '<p>%data%</p>'
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -90,7 +94,7 @@ var googleMap = '<div id="map"></div>';
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
-// 
+//
 function loadLang() {
     $(document).ready(function() {
     $('#lang').click(function() {
@@ -102,7 +106,7 @@ function loadLang() {
         {
             userLang = "fr";
         }
-        
+
         // store userLang
         localStorage.setItem("lang", userLang);
 
@@ -211,8 +215,7 @@ function initializeMap() {
     var infoWindow = new google.maps.InfoWindow({
       content: name
     });
-    
-    
+
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
