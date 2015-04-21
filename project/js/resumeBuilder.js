@@ -125,6 +125,21 @@ projects.display = function() {
 
 projects.display();
 
+hobbies.display = function() {
+    var hlength = hobbies.hobbies.length;
+console.log(hlength);
+    for (var i = hlength - 1; i >=0; i --) {
+        $("#hobbies").append(HTMLhobbiesStart);
+        $(".hobbies-entry:last").append(HTMLhobbiesTitle.replace("%data%", hobbies.hobbies[i].title));
+        if (hobbies.hobbies[i].url) {
+            $(".hobbies-entry:last").append(HTMLhobbiesUrl.replace(/(%data%)/gm, hobbies.hobbies[i].url));
+        }
+        $(".hobbies-entry:last").append(HTMLhobbiesDesc.replace("%data%", hobbies.hobbies[i].desc));
+    }
+}
+
+hobbies.display();
+
 // add map
 /*$("#mapDiv").append(googleMap);*/
 

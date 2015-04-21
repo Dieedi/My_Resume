@@ -25,7 +25,6 @@ if (userLang === "fr")
     document.getElementsByTagName("html")[0].setAttribute("lang", "fr");
     // load english button onclick function
     loadLang();
-
 }
 else
 {
@@ -63,7 +62,7 @@ var HTMLworkTitle = ' - %data%</h5>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p>%data%</p>';
-var HTMLworkImg = '<img src="%data%" class="logo">'
+var HTMLworkImg = '<img src="%data%" class="logo" width="25%">'
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<h5>%data%</h5></div><br clear="all">';
@@ -85,7 +84,13 @@ var HTMLonlineSchool = ' - %data%</h5><br clear="all">';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<a href="%data%" target="_blank">%data%</a>';
 var HTMLonlineImage = '<img src="%data%" class="logo">';
-var HTMLonlineDescription = '<p>%data%</p>'
+var HTMLonlineDescription = '<p>%data%</p>';
+
+var HTMLhobbiesStart = '<div class="hobbies-entry"></div>';
+var HTMLhobbiesTitle = '<h5>%data%</h5><br>';
+var HTMLhobbiesUrl = '<a href="%data%" target="_blank">%data%</a>';
+var HTMLhobbiesDesc = '<p>%data%</p>';
+
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -149,7 +154,7 @@ var map;    // declares a global map variable
 /*
 Start here! initializeMap() is called when page is loaded.
 */
-function initializeMap() {
+/*function initializeMap() {
 
   var locations;
 
@@ -161,12 +166,12 @@ function initializeMap() {
   // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
-
+*/
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
   */
-  function locationFinder() {
+/*  function locationFinder() {
 
     // initializes an empty array
     var locations = [];
@@ -188,13 +193,13 @@ function initializeMap() {
 
     return locations;
   }
-
+*/
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
   placeData is the object returned from search results containing information
   about a single location.
   */
-  function createMapMarker(placeData) {
+/*  function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
     var lat = placeData.geometry.location.lat();  // latitude from the place service
@@ -230,22 +235,22 @@ function initializeMap() {
     // center the map
     map.setCenter(bounds.getCenter());
   }
-
+*/
   /*
   callback(results, status) makes sure the search returned results for a location.
   If so, it creates a new map marker for that location.
   */
-  function callback(results, status) {
+/*  function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0]);
     }
   }
-
+*/
   /*
   pinPoster(locations) takes in the array of locations created by locationFinder()
   and fires off Google place searches for each location
   */
-  function pinPoster(locations) {
+ /* function pinPoster(locations) {
 
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
@@ -276,13 +281,13 @@ function initializeMap() {
   pinPoster(locations);
 
 }
-
+*/
 /*
 Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-window.addEventListener('load', initializeMap);
+/*window.addEventListener('load', initializeMap);*/
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds

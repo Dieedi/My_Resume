@@ -2,7 +2,7 @@
     french entries for resumeBuilder.js
 */
 
-var skills = ["HTML5", "CSS3", "Javascript", "Git", "Knockout", "Jasmine", "Grunt", "MVC", "Responsive Design"];
+var skills = ["HTML5", "CSS3", "Javascript", "Git", "Knockout", "Jasmine", "Grunt", "MVC", "Responsive Design", "Bootstrap"];
 
 var bio = {
     "fullname" : "Jeremy POUILLOT",
@@ -63,7 +63,7 @@ var projects = {
         "title": "TheFAQ",
         "dates": "2014/2015",
         "description": 'Projet final de la formation CS50, création d\'une FAQ "interactive" en PHP/MySQL',
-        "images": ["http://thefaq.info/img/qmark.jpg"],
+        "images": ["images/qmark.jpg"],
         "url": "http://thefaq.info"
     },
     {
@@ -124,6 +124,20 @@ var education = {
         "https://www.edx.org/course/introduction-computer-science-harvardx-cs50x",
         "image": "images/edx.png",
         "description": "Introduction au développement."
+    }
+    ]
+};
+
+var hobbies = {
+    "hobbies" : [
+    {
+        'title': 'Javascript katas',
+        'url': 'http://www.codewars.com',
+        'desc': 'Résolution de petits problèmes en Javascript'
+    },
+    {
+        'title': 'MMORPG',
+        'desc': 'Plus que de simples jeux les MMORPG permettent aussi un travail coopératif. Chercher des solutions ensemble pour progresser et avancer.'
     }
     ]
 };

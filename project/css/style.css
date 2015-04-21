@@ -46,7 +46,7 @@ h5 {
     padding-top: 21%;
   }
   #hobbies {
-
+    padding-top: 28%;
   }
 }
 
@@ -112,7 +112,7 @@ a#collapseExp, a#collapseProj, a#collapseEdu, a#collapseHobbies {
   border-color: rgba(0,0,0,0.5);
 }
 
-.project-entry, .work-entry, .education-entry {
+.project-entry, .work-entry, .education-entry, .hobbies-entry {
   border: 1px solid black;
   width: 80%;
   padding: 10px;
