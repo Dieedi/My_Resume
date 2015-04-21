@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # The Resume Project
 
 ## How do I complete this project?
@@ -48,3 +49,12 @@ The resume has four distinct sections: work, education, projects and a header wi
 4. All of your code for adding elements to the resume should be within functions. And all of your functions should be encapsulated within the same objects containing your resume data. For instance, your functions for appending work experience elements to the page should be found within the same object containing data about your work experience.
 5. Your resume should also `console.log()` information about click locations. On line 90 in helper.js, you’ll find a jQuery onclick handler that you’ll need to modify to work with the `logClicks(x,y)` function above it.
 6. It’s possible to make additional information show up when you click on the pins in the map. Check out line 174 in helper.js and the Google Maps API to get started.
+||||||| merged common ancestors
+=======
+# My_Resume
+Resume based on front end nanodegree resume
+
+
+Keep helper.js with some changes. Add changes to resumebuilder.js.
+Rewrite html and css.
+>>>>>>> 5617ff5d5ed80225adf15178c09906f347a98fac
