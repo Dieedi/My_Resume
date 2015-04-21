@@ -13,9 +13,7 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true,
                 files: {
-                    '.tmp/css/print.css': ['project/css/print.css'],
-                    '.tmp/css/style.css': ['project/css/style.css'],
-                    '.tmp/views/styles/style.css': ['project/views/styles/style.css']
+                    '.tmp/css/style.css': ['project/css/style.css']
                 }
             },
         },
@@ -23,7 +21,7 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 files: {
-                    '.tmp/js/main.js': ['project/js/helper.js', 'project/js/resumeBuilder.js', 'project/js/fr.js', 'project/js/en.js']
+                    '.tmp/js/main.js': ['project/js/helper.js', 'project/js/resumeBuilder.js']
                 }
             }/*,
 
@@ -38,7 +36,7 @@ module.exports = function(grunt) {
         cssmin: {
             target: {
                 files: {
-                    'dist/css/style.css': ['project/css/style.css']
+                    'dist/css/style.css': ['.tmp/css/style.css']
                 }
             }
         },
@@ -229,14 +227,14 @@ module.exports = function(grunt) {
 
     //  Task setup
     grunt.registerTask('build', [
-                                    'jshint',
                                     'autoprefixer',
                                     'concat',
                                     'cssmin',
                                     'uglify',
                                     'processhtml',
                                     'htmlmin',
-                                    'imagemin',
+                                    'image',
+                                    'image_resize'
                                     /*'copy'*/]);
 
     grunt.registerTask('default', [ //  List of tasks to execute.
